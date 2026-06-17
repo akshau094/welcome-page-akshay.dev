@@ -1,0 +1,93 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+        radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 2px, transparent 0),
+        linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+    background-size: 32px 32px, cover;
+    overflow:hidden;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.bg-text-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-text{
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: rgba(30, 64, 175, 0.08);
+    animation: float 8s ease-in-out infinite;
+    text-transform: uppercase;
+}
+
+.bg-text:nth-child(odd){
+    animation-delay: 0.5s;
+}
+
+.bg-text:nth-child(3n){
+    animation-delay: 1s;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 10;
+}
+
+.hello-svg{
+    width:min(720px,84vw);
+}
+
+#helloText{
+    font-family:"Sacramento", cursive;
+    font-size:180px;
+    fill:rgba(15, 23, 42, 0.98);
+    stroke:#0f172a;
+    stroke-width:4;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    paint-order:stroke fill;
+    filter:
+        drop-shadow(0 0 6px rgba(15, 23, 42,.25))
+        drop-shadow(0 0 20px rgba(15, 23, 42,.12));
+    opacity:1;
+}
+
+@media (max-width: 640px){
+    #helloText{
+        font-size:140px;
+    }
+    .bg-text{
+        font-size: 12px !important;
+    }
+}
